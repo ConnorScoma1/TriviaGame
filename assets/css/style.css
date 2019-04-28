@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #2a2a2a;
+    font-family: 'Roboto Mono', monospace;
+    color: #1eff00;
+}
+
+.head {
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+    margin-bottom: 10rem;
+} 
+
+.head h1 span {
+    font-size: 2.5rem;
+    display: block;
+    margin-left: 35rem;
+}
+
+.trivia-area {
+    border: solid .5rem #1eff00;
+    margin-left: 35rem;
+    margin-right: 35rem;
+    padding: 1.5rem;
+}
+
+#question {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 8rem;
+} 
+
+#answers {
+    text-align: center;
+}
+
+#a {
+    background-color: #2a2a2a;
+    border: #1eff00 .2rem solid;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    color: #1eff00;
+    display: inline;
+    margin-bottom: 1.5rem;
+}
+
+#b {
+    background-color: #2a2a2a;
+    border: #1eff00 .2rem solid;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    color: #1eff00;
+    display: inline;
+    margin-bottom: 1.5rem;
+}
+
+#c {
+    background-color: #2a2a2a;
+    border: #1eff00 .2rem solid;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    color: #1eff00;
+    display: inline;
+}
+
+#d {
+    background-color: #2a2a2a;
+    border: #1eff00 .2rem solid;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 2rem;
+    color: #1eff00;
+    display: inline;
+}
+
+#timer {
+    font-size: 3rem;
+}
