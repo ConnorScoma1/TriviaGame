@@ -31,7 +31,7 @@ var questions = [
    choiceB : "Expression",
    choiceC : "Harness",
    choiceD : "Assertion",
-   correct : "d"
+   correct : "d",
     },
     {
    question : "A section of code that responds to a particular interaction of the user with a gui control is called a ____?", // event handler
@@ -39,16 +39,19 @@ var questions = [
    choiceB : "Control Structure",
    choiceC : "Exception Handler",
    choiceD : "Dispatch Function",
-   correct : "a"
+   correct : "a",
     },
 ];
 
-var questionTimer = 10;
+var questionTimer = 15;
 var startTimer = 0
 
 var question = document.getElementById('question');
 
+
+
 var userScore = 0;
+
 var wrongAnswer = 0;
 
 var timer = document.getElementById('timer');
@@ -64,7 +67,7 @@ let questionIndex = 0;
 
 //Create function
 function questionsIndex() {
-    var q = questions[questionIndex];
+    var q = questions[questionIndex] ;
     question.innerHTML = "</p>" + q.question + "<p>"
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
@@ -79,20 +82,23 @@ function counter() {
         startTimer++;
     } else {
         startTimer = 0;
-            if(questionIndex < lastQuestionIndex){
+            if(questionIndex <= lastQuestionIndex){
                 questionIndex++;
                 questionsIndex();
             }
     }
 };
 
-
+var totalScore = (userScore / questions.length) * 100;
 
 function checkanswer(answer) {
     if(questions[questionIndex].correct == answer){
         userScore++;
+        console.log('correct')
+        document.getElementById('score').innerHTML = userScore;
     } else {
         wrongAnswer++;
+        console.log('incorrect')
     }
     if (questionIndex < lastQuestionIndex) {
         startTimer = 0;
@@ -100,6 +106,8 @@ function checkanswer(answer) {
         questionsIndex();
     }
 }
+
+
 
 checkanswer();
 
