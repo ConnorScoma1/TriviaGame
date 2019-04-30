@@ -9,11 +9,6 @@
     <!-- Link to  -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script
-        src="https://code.jquery.com/jquery-3.4.0.js"
-        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-        crossorigin="anonymous">
-    </script>
 </head>
 <body>
     <!-- Document Container -->
@@ -32,14 +27,19 @@
 
         <!-- User Response div -->
         <div id="answers">
-            <button id="a">Answer</button>
-            <button id="b">Answer</button>
-            <button id="c">Answer</button>
-            <button id="d">Answer</button>
+            <button id="a" onclick="checkanswer('a')"></button>
+            <button id="b" onclick="checkanswer('b')"></button>
+            <button id="c" onclick="checkanswer('c')"></button>
+            <button id="d" onclick="checkanswer('d')"></button>
         </div>
 
         <!-- Timer Div -->
-        <div id="timer">10</div>
+        <div id="timer">0</div>
+
+        <!-- User Score -->
+        <p>You Have Guessed : </p>
+        <div id="score"></div>
+        <p>Correctly</p>
 
     </div>
     
