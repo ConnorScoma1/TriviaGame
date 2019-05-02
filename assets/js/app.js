@@ -1,4 +1,4 @@
-//Create Question
+//Create Questions
 var questions = [
     {
     question : "At Dartmouth College in 1964 John Kemeny and Thomas Kurtz invented ____?", // Basic
@@ -43,51 +43,69 @@ var questions = [
     },
 ];
 
-var questionTimer = 15;
-var startTimer = 0
+//End Of Timer
+var questionTimer = 0;
+//Starting Timer
+var startTimer = 15;
 
+//Getting Question Div form DOM
 var question = document.getElementById('question');
-
-
-
-var userScore = 0;
-
-var wrongAnswer = 0;
-
+// timer ID from DOM
 var timer = document.getElementById('timer');
-
+// Current User Score
+var userScore = 0;
+// Choice A
 const choiceA = document.getElementById('a');
+// Choice B
 const choiceB = document.getElementById('b');
+// Choice C
 const choiceC = document.getElementById('c');
+// Choice D
 const choiceD = document.getElementById('d');
 
+// last Question of Object Model
 const lastQuestionIndex = questions.length -1;
-let questionIndex = 0;
+//Setting Current State of Question
+var questionIndex = 0;
 
-
-//Create function
+// Function for printing Question and Choices to DOM
 function questionsIndex() {
+    // Short hand for question
     var q = questions[questionIndex] ;
+    //appending Question to DOM
     question.innerHTML = "</p>" + q.question + "<p>"
+    //Appeneding Choice A
     choiceA.innerHTML = q.choiceA;
+    //Appeneding Choice B
     choiceB.innerHTML = q.choiceB;
+    //Appeneding Choice C
     choiceC.innerHTML = q.choiceC;
+    //Appeneding Choice D
     choiceD.innerHTML = q.choiceD;
 };
 
-
+// Counter Function
 function counter() {
-    if(startTimer <= questionTimer ){
+    // If End Timer is Less than start timer
+    if(questionTimer <= startTimer ){
+        //Appened Timer Value to DOM
         timer.innerHTML = startTimer;
-        startTimer++;
+        //Decrement startTimer by one
+        startTimer--;
+
     } else {
-        startTimer = 0;
+        //When Start Timer is Equal to zero
+        startTimer == 0;
             if(questionIndex <= lastQuestionIndex){
                 questionIndex++;
                 questionsIndex();
             }
     }
 };
+
+setInterval(counter, 1000);
+
+console.log(counter())
 
 var totalScore = (userScore / questions.length) * 100;
 
@@ -107,8 +125,5 @@ function checkanswer(answer) {
     }
 }
 
-
-
 checkanswer();
 
-setInterval(counter, 1000)
