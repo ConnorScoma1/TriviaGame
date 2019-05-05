@@ -43,6 +43,7 @@ var questions = [
     },
 ];
 
+
 //End Of Timer
 var questionTimer = 0;
 //Starting Timer
@@ -73,7 +74,7 @@ function questionsIndex() {
     // Short hand for question
     var q = questions[questionIndex] ;
     //appending Question to DOM
-    question.innerHTML = "</p>" + q.question + "<p>"
+    question.innerHTML = "</p>" + q.question + "<p>";
     //Appeneding Choice A
     choiceA.innerHTML = q.choiceA;
     //Appeneding Choice B
@@ -95,35 +96,73 @@ function counter() {
 
     } else {
         //When Start Timer is Equal to zero
-        startTimer == 0;
+        startTimer == 15;
+            //Increment through questions
             if(questionIndex <= lastQuestionIndex){
                 questionIndex++;
+                //change new question and Image 
                 questionsIndex();
             }
     }
 };
 
-setInterval(counter, 1000);
+// Counter Interval
 
-console.log(counter())
 
-var totalScore = (userScore / questions.length) * 100;
 
+// console.log(counter())
+
+
+// Math for displaying Total Score
+// var totalScore = (userScore / questions.length) * 100;
+
+var totalString = "YOU SCORED A "
+
+function result() {
+    document.getElementById('question').innerHTML = "";
+    document.getElementById('timer').innerHTML = "";
+    document.getElementById('answers').innerHTML = "";
+    document.getElementById('score').innerHTML = "";
+    var totalScore = (userScore / questions.length) * 100;
+    document.getElementById('result').innerHTML = totalString + totalScore + '%';
+}
+
+
+// Check if User Guess is == answer
 function checkanswer(answer) {
+    //Checking if guess is correct
     if(questions[questionIndex].correct == answer){
+        //Increment User Score
         userScore++;
-        console.log('correct')
+        // console.log('correct')
+        // appened user score to DOM
         document.getElementById('score').innerHTML = userScore;
-    } else {
-        wrongAnswer++;
+        //else == incorrect
+    } else if (questions[questionIndex].correct != answer){
         console.log('incorrect')
     }
-    if (questionIndex < lastQuestionIndex) {
-        startTimer = 0;
-        questionIndex++;
+    // starting
+    if (questionIndex <= lastQuestionIndex) {
         questionsIndex();
+        startTimer = 15;
+        questionIndex++;
     }
 }
 
-checkanswer();
+
+function game(){
+    if (questionIndex <= lastQuestionIndex){
+        console.log('checking answer')
+        checkanswer();
+    } else {
+        console.log('should be the end')
+    }
+}
+
+game();
+
+setInterval(counter, 1000);
+
+
+
 
